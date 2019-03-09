@@ -5,21 +5,10 @@ namespace App\Http\Controllers;
 use App\Author;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use App\Services\BraintreeService;
 
 
 class AuthorController extends Controller
 {
-  protected $gateway;
-
-  public function __construct(BraintreeService $gateway)
-    {
-        $this->gateway = $gateway->getBraintreeGateway();
-    }
-
-    public function getClientToken() {
-      return response()->json(['token' => $this->gateway->ClientToken()->generate()]);
-    }
 
     public function showAllAuthors()
     {

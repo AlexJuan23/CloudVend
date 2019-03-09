@@ -18,7 +18,18 @@ $router->get('/', function () use ($router) {
 
 $router->group(['prefix' => 'api'], function () use ($router) {
 
-  $router->get('payment/client/token',  ['uses' => 'AuthorController@getClientToken']);
+  $router->get('payment/client/token',  ['uses' => 'paymentController@getClientToken']);
+
+  $router->get('machine/vend',  ['uses' => 'paymentController@vendCandyTest']);
+
+  $router->post('payment/transaction', ['uses' => 'paymentController@submitTransaction']);
+
+  $router->get('payment/dropin',['uses' => 'paymentController@DropinUI']);
+
+  $router->get('vending/machine',['uses' => 'paymentController@VendingMachine']);
+
+
+
 
   $router->get('authors',  ['uses' => 'AuthorController@showAllAuthors']);
 

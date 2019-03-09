@@ -1,7 +1,8 @@
 <?php
 
 return [
-    'bt_merchant_id' => '8gdpnkrx2zg4s6tk',
-    'bt_public_key' => 'hrjvbz4vjy72jm8b',
-    'bt_private_key' => '8abf0a4d992076ed6599417505715c8f',
+  'bt_environment' => env('BT_ENVIRONMENT'),
+  'bt_merchant_id' => env('BT_MERCHANT_ID'),
+  'bt_public_key' => env('BT_PUBLIC_KEY'),
+  'bt_private_key' => env('BT_PRIVATE_KEY'),
 ];
