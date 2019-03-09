@@ -30299,6 +30299,66 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(element, rootElement);
 
 /***/ }),
 
+/***/ "./resources/js/components/forms.redux.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/forms.redux.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var initialState = {
+  first_name: '',
+  last_name: '',
+  email: '',
+  address: '',
+  state: '',
+  city: '',
+  zipcode: ''
+};
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var form = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case 'SET_FIRST_NAME':
+      form.first_name = action.data;
+      break;
+
+    case 'SET_LAST_NAME':
+      form.las_name = action.data;
+      break;
+
+    case 'SET_EMAIL':
+      form.email = action.data;
+      break;
+
+    case 'SET_ADDRESS':
+      form.address = action.data;
+      break;
+
+    case 'SET_STATE':
+      form.state = action.data;
+      break;
+
+    case 'SET_CITY':
+      form.city = action.data;
+      break;
+
+    case 'SET_ZIPCODE':
+      form.zipcode = action.data;
+      break;
+
+    default:
+      break;
+  }
+
+  return JSON.parse(JSON.stringify(form));
+});
+
+/***/ }),
+
 /***/ "./resources/js/components/redux.js":
 /*!******************************************!*\
   !*** ./resources/js/components/redux.js ***!
@@ -30309,11 +30369,11 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(element, rootElement);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-!(function webpackMissingModule() { var e = new Error("Cannot find module './redux/forms.redux'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _forms_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./forms.redux */ "./resources/js/components/forms.redux.js");
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  FormStore: !(function webpackMissingModule() { var e = new Error("Cannot find module './redux/forms.redux'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())
+  FormStore: _forms_redux__WEBPACK_IMPORTED_MODULE_1__["default"]
 })));
 
 /***/ }),
