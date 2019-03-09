@@ -27,25 +27,54 @@ class VendingMachine extends React.Component {
 	}
 }
 class Shipping extends React.Component {
-	render () {
-		const snackButton =  withRouter(({ history }) => (
-			<button onClick={() => { history.push('/') }}>
-				Snack
-			</button>
-		)
-	)
-		return (
-			<div className='shipping-container'>
-			<div className='vendingmachine'>
-				<p><a>Ship-O-Matic</a></p>
-					{snackButton}
-					<button>
-						mystery
-					</button>
-			</div>
-		</div>
-		)
-	}
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          First Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <label>
+          Last Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <label>
+          address:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <label>
+          city:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <label>
+          state:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <label>
+          zipcode:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
 }
 class VendingControl extends React.Component {
 	render() {
