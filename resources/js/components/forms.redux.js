@@ -14,7 +14,7 @@ export default function(form = initialState, action) {
             form.first_name = action.data;
             break;
         case 'SET_LAST_NAME':
-            form.las_name = action.data;
+            form.last_name = action.data;
             break;
         case 'SET_EMAIL':
             form.email = action.data;

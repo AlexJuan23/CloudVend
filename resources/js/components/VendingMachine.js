@@ -6,6 +6,7 @@ import {
     Route,
     Link
 }from 'react-router-dom';
+import {connect, Provider} from 'react-redux';
 import Store from './redux';
 window.store = Store
 
@@ -169,8 +170,9 @@ class VendingControl extends React.Component {
 
 	}
 }
- const element = <VendingControl />
- ReactDOM.render (
-	 element,
-	 rootElement
- )
+
+ReactDOM.render(
+  <Provider store={ Store }>
+      <VendingControl />
+  </Provider>,
+  rootElement);
