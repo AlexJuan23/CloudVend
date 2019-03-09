@@ -64,31 +64,80 @@ class Shipping extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           First Name:
-          <input type="text" name="first_name" value={this.state.value} onChange={this.handleChange} />
+          <input
+            type="text"
+            value={ this.props.first_name }
+            onChange={ event => store.dispatch({
+                type: 'SET_FIRST_NAME',
+                data: event.target.value
+            })
+          }/>
         </label>
         <label>
           Last Name:
-          <input type="text" name="last_name" value={this.state.value} onChange={this.handleChange} />
+          <input
+            type="text"
+            value={ this.props.last_name }
+            onChange={ event => store.dispatch({
+                type: 'SET_LAST_NAME',
+                data: event.target.value
+            })
+          }/>
         </label>
         <label>
         Email:
-        <input type="text" name="email" value={this.state.value} onChange={this.handleChange} />
+        <input
+          type="text"
+          value={ this.props.email }
+          onChange={ event => store.dispatch({
+              type: 'SET_EMAIL',
+              data: event.target.value
+          })
+        }/>
         </label>
         <label>
           address:
-          <input type="text" name="address" value={this.state.value} onChange={this.handleChange} />
+          <input
+            type="text"
+            value={ this.props.address }
+            onChange={ event => store.dispatch({
+                type: 'SET_ADDRESS',
+                data: event.target.value
+            })
+          }/>
         </label>
         <label>
           city:
-          <input type="text" name="city" value={this.state.value} onChange={this.handleChange} />
+          <input
+            type="text"
+            value={ this.props.city }
+            onChange={ event => store.dispatch({
+                type: 'SET_CITY',
+                data: event.target.value
+            })
+          }/>
         </label>
         <label>
           state:
-          <input type="text" name="state" value={this.state.value} onChange={this.handleChange} />
+          <input
+            type="text"
+            value={ this.props.state }
+            onChange={ event => store.dispatch({
+                type: 'SET_STATE',
+                data: event.target.value
+            })
+          }/>
         </label>
         <label>
           zipcode:
-          <input type="text" name="zipcode" value={this.state.value} onChange={this.handleChange} />
+          <input
+            type="text"
+            value={ this.props.zipcode }
+            onChange={ event => store.dispatch({
+                type: 'SET_ZIPCODE',
+                data: event.target.value
+            })
+          }/>
         </label>
         <input type="submit" value="Submit" />
       </form>
