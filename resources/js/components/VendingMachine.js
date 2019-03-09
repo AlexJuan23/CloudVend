@@ -6,6 +6,8 @@ import {
     Route,
     Link
 }from 'react-router-dom';
+import Store from './redux';
+window.store = Store
 
 const rootElement = document.getElementById('root')
 const props = store => {
@@ -93,6 +95,8 @@ class Shipping extends React.Component {
     );
   }
 }
+Shipping = connect(props)(Shipping)
+
 class VendingControl extends React.Component {
 	render() {
 		return (
