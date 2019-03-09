@@ -8,6 +8,18 @@ import {
 }from 'react-router-dom';
 
 const rootElement = document.getElementById('root')
+const props = store => {
+  return {
+      first_name: store.FormStore.first_name,
+      last_name: store.FormStore.last_name,
+      email: store.FormStore.email,
+      address: store.FormStore.address,
+      address: store.FormStore.city,
+      address: store.FormStore.state,
+      address: store.FormStore.zipcode,
+
+  };
+}
 
 class VendingMachine extends React.Component {
 	render () {
@@ -27,6 +39,7 @@ class VendingMachine extends React.Component {
 	}
 }
 class Shipping extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {value: ''};
@@ -49,27 +62,31 @@ class Shipping extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           First Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input type="text" name="first_name" value={this.state.value} onChange={this.handleChange} />
         </label>
         <label>
           Last Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input type="text" name="last_name" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <label>
+        Email:
+        <input type="text" name="email" value={this.state.value} onChange={this.handleChange} />
         </label>
         <label>
           address:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input type="text" name="address" value={this.state.value} onChange={this.handleChange} />
         </label>
         <label>
           city:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input type="text" name="city" value={this.state.value} onChange={this.handleChange} />
         </label>
         <label>
           state:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input type="text" name="state" value={this.state.value} onChange={this.handleChange} />
         </label>
         <label>
           zipcode:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input type="text" name="zipcode" value={this.state.value} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
       </form>
