@@ -16,9 +16,6 @@ $router->get('/',['uses' => 'paymentController@VendingMachine']);
 $router->get('/shipping/snack',['uses' => 'paymentController@VendingMachine']);
 $router->get('/shipping/mystery',['uses' => 'paymentController@VendingMachine']);
 
-
-
-
 $router->group(['prefix' => 'api'], function () use ($router) {
 
   $router->get('payment/client/token',  ['uses' => 'paymentController@getClientToken']);

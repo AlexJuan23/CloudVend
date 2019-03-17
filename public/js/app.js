@@ -93,33 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// braintree.dropin.create({
-//   authorization: e.data,
-//   selector: '#bt-dropin',
-//   paypal: {
-//     flow: 'vault'
-//   }
-// }, function (createErr, instance) {
-//   if (createErr) {
-//     console.log('Create Error', createErr);
-//     return;
-//   }
-//   form.addEventListener('submit', function (event) {
-//     event.preventDefault();
-//
-//     instance.requestPaymentMethod(function (err, payload) {
-//       if (err) {
-//         console.log('Request Payment Method Error', err);
-//         return;
-//       }
-//
-//       // Add the nonce to the form and submit
-//       document.querySelector('#nonce').value = payload.nonce;
-//       amount = document.querySelector('#amount').value;
-//     //  form.submit();
-//     });
-//   });
-// });
+
 
 /***/ }),
 
