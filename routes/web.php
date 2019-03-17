@@ -28,15 +28,4 @@ $router->group(['prefix' => 'api'], function () use ($router) {
   $router->post('payment/transaction', ['uses' => 'paymentController@submitTransaction']);
 
   $router->get('payment/dropin',['uses' => 'paymentController@DropinUI']);
-  
-
-  $router->get('authors',  ['uses' => 'AuthorController@showAllAuthors']);
-
-  $router->get('authors/{id}', ['uses' => 'AuthorController@showOneAuthor']);
-
-  $router->post('authors', ['uses' => 'AuthorController@create']);
-
-  $router->delete('authors/{id}', ['uses' => 'AuthorController@delete']);
-
-  $router->put('authors/{id}', ['uses' => 'AuthorController@update']);
 });
