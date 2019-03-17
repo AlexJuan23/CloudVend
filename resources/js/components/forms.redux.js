@@ -5,7 +5,10 @@ const initialState = {
     address: '',
     state: '',
     city: '',
-    zipcode: ''
+    zipcode: '',
+    item: '',
+    amount: '',
+    nonce: ''
 }
 
 export default function(form = initialState, action) {
@@ -30,6 +33,15 @@ export default function(form = initialState, action) {
             break;
         case 'SET_ZIPCODE':
             form.zipcode = action.data;
+            break;
+        case 'SET_ITEM':
+            form.item = action.data;
+            break;
+        case 'SET_AMOUNT':
+            form.amount = action.data;
+            break;
+        case 'SET_NONCE':
+            form.nonce = action.data;
             break;
         default:
             break;

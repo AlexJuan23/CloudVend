@@ -12,9 +12,12 @@ use Illuminate\Http\Request;
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+$router->get('/',['uses' => 'paymentController@VendingMachine']);
+$router->get('/shipping/snack',['uses' => 'paymentController@VendingMachine']);
+$router->get('/shipping/mystery',['uses' => 'paymentController@VendingMachine']);
+
+
+
 
 $router->group(['prefix' => 'api'], function () use ($router) {
 
@@ -25,11 +28,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
   $router->post('payment/transaction', ['uses' => 'paymentController@submitTransaction']);
 
   $router->get('payment/dropin',['uses' => 'paymentController@DropinUI']);
-
-  $router->get('vending/machine',['uses' => 'paymentController@VendingMachine']);
-
-
-
+  
 
   $router->get('authors',  ['uses' => 'AuthorController@showAllAuthors']);
 
