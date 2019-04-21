@@ -10,6 +10,8 @@ window.store = Store
 import VendingMachine from './VendingMachine';
 import Shipping from './Shipping';
 import Checkout from './Checkout';
+import Success from './Success';
+
 
 
 const rootElement = document.getElementById('root')
@@ -22,6 +24,7 @@ class VendingControl extends React.Component {
 					<Route path="/" exact component={VendingMachine} />
 					<Route path="/shipping/:item" component={Shipping} />
           <Route path="/checkout" component={Checkout} />
+          <Route path="/success" component={Success} />
 				</div>
 			</Router>
 		)

@@ -8,9 +8,14 @@ const initialState = {
     zipcode: '',
     item: '',
     amount: '',
-    nonce: ''
+    nonce: '',
+    transaction: '',
+    disabled: 1,
+    letter: '',
+    number: '',
+    open_tray: '',
+    show_can: false,
 }
-
 export default function(form = initialState, action) {
     switch(action.type) {
         case 'SET_FIRST_NAME':
@@ -42,6 +47,24 @@ export default function(form = initialState, action) {
             break;
         case 'SET_NONCE':
             form.nonce = action.data;
+            break;
+        case 'SET_TRANSACTION':
+            form.transaction = action.data;
+            break;
+        case 'SET_DISABLED':
+            form.disabled = action.data;
+            break;
+        case 'SET_LETTER':
+            form.letter = action.data;
+            break;
+        case 'SET_NUMBER':
+            form.number = action.data;
+            break;
+        case 'SET_OPEN_TRAY':
+            form.open_tray = action.data;
+            break;
+        case 'SET_SHOW_CAN':
+            form.show_can = action.data;
             break;
         default:
             break;

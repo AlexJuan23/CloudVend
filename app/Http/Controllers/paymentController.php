@@ -94,7 +94,7 @@ class paymentController extends Controller
    }
 
    if ($result->success || !is_null($result->transaction)) {
-     $this->machine->vendCandy();
+    // $this->machine->vendCandy();
      return response()->json(['transactionId' => $result->transaction->id,'success' => $success ], 201);
 
    }

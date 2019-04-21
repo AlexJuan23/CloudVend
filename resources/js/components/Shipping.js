@@ -39,85 +39,80 @@ class Shipping extends React.Component {
 
   render() {
     return (
-      <div className='shipping-form'>
-        <label>
-          First Name:
+      <div className='shipping-container'>
+        <div className='shipping-form'>
+        <div class='title'>
+          <h1>Shipping Form<span className="required">*</span></h1>
+        </div>
+        <div class="form-wrapper">
           <input
             type="text"
+            placeholder="First Name"
             value={ this.props.first_name }
             onChange={ event => store.dispatch({
                 type: 'SET_FIRST_NAME',
                 data: event.target.value
             })
           }/>
-        </label>
-        <label>
-          Last Name:
           <input
             type="text"
+            placeholder="Last Name"
             value={ this.props.last_name }
             onChange={ event => store.dispatch({
                 type: 'SET_LAST_NAME',
                 data: event.target.value
             })
           }/>
-        </label>
-        <label>
-        Email:
-        <input
-          type="text"
-          value={ this.props.email }
-          onChange={ event => store.dispatch({
-              type: 'SET_EMAIL',
-              data: event.target.value
-          })
-        }/>
-        </label>
-        <label>
-          address:
+          <input
+            type="email"
+            placeholder="Email"
+            value={ this.props.email }
+            onChange={ event => store.dispatch({
+                type: 'SET_EMAIL',
+                data: event.target.value
+            })
+          }/>
           <input
             type="text"
+            placeholder="Address"
             value={ this.props.address }
             onChange={ event => store.dispatch({
                 type: 'SET_ADDRESS',
                 data: event.target.value
             })
           }/>
-        </label>
-        <label>
-          city:
           <input
             type="text"
+            placeholder="City"
             value={ this.props.city }
             onChange={ event => store.dispatch({
                 type: 'SET_CITY',
                 data: event.target.value
             })
           }/>
-        </label>
-        <label>
-          state:
           <input
             type="text"
+            placeholder="state"
             value={ this.props.state }
             onChange={ event => store.dispatch({
                 type: 'SET_STATE',
                 data: event.target.value
             })
           }/>
-        </label>
-        <label>
-          zipcode:
           <input
             type="text"
+            placeholder="Zipcode"
             value={ this.props.zipcode }
             onChange={ event => store.dispatch({
                 type: 'SET_ZIPCODE',
                 data: event.target.value
             })
           }/>
-        </label>
-        <Link to="/checkout">submit</Link>
+          <Link className="submit" to="/checkout">submit</Link>
+          <p className ="required required-text">* All fields are required. Thank You.</p>
+        </div>
+
+        </div>
       </div>
     );
   }

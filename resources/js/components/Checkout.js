@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import {Link , withRouter} from 'react-router-dom';
 import {connect, Provider} from 'react-redux';
 import Store from './redux';
 window.store = Store
@@ -22,6 +22,7 @@ const props = store => {
       item: store.FormStore.item,
       amount: store.FormStore.amount,
       nonce: store.FormStore.nonce,
+      transaction: store.FormStore.transaction,
   };
 }
 
@@ -39,8 +40,8 @@ class Checkout extends React.Component {
   }
 
   initBraintree() {
+    let self = this;
     axios.get('/api/payment/client/token').then(response => {
-    console.log(response.data.token)
       braintree.dropin.create({
         authorization: response.data.token,
         selector: '#bt-dropin',
@@ -60,9 +61,12 @@ class Checkout extends React.Component {
               return;
             }
 
-            // Add the nonce to the form and submit
-            document.querySelector('#nonce').value = payload.nonce;
-          //  form.submit();
+            // Add the nonce to redux.
+            store.dispatch({
+                type: 'SET_NONCE',
+                data: payload.nonce
+            })
+            self.handleSubmit()
           });
         });
       });
@@ -70,23 +74,20 @@ class Checkout extends React.Component {
     });
   }
 
-  handleSubmit(event) {
-    console.log(this.props)
+  handleSubmit() {
+    axios.post('/api/payment/transaction', this.props).then(response => {
+      store.dispatch({
+          type: 'SET_TRANSACTION',
+          data: response.data.transactionId
+      })
+      this.props.history.push('/Success')
+    });
   }
 
   render() {
     return (
       <div className='checkout-form'>
         <p>Amount: {this.props.amount}</p>
-          <input
-            id = "amount"
-            type="hidden"
-            value={this.props.amount}
-          />
-          <input
-            id = "nonce"
-            type="hidden"
-          />
         <div className="bt-drop-in-wrapper">
             <div id="bt-dropin"></div>
         </div>
@@ -95,4 +96,5 @@ class Checkout extends React.Component {
     );
   }
 }
+withRouter(Checkout);
 export default connect(props)(Checkout);
